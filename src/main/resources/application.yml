@@ -1,0 +1,28 @@
+spring:
+  profiles:
+    active: ${env}
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+
+server:
+  servlet:
+    context-path: /blog
+  tomcat:
+    uri-encoding: utf-8
+  port: 8080
+
+
+# »’÷æ≈‰÷√
+logging:
+  path: /logs
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %C:<%M>:%L %-5p - %m%n'
+  level:
+    iJinxin.blog.*: info
+
+
+
+
