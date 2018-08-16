@@ -1,0 +1,19 @@
+package com.weskyx.blog.entity;
+
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Data
+@NoArgsConstructor
+@Document(collection = "images")
+public class Image {
+    @Id
+    private String id;
+    private String name;
+    private String contentType;
+    private long size;
+    private byte[] content;
+}

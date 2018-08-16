@@ -1,4 +1,4 @@
 package com.weskyx.blog.entity;
 
-public class Article {
+public class User {
 }
