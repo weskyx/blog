@@ -17,10 +17,19 @@ public interface IArticleMapper {
     @Select("SELECT * FROM article WHERE status = 2 AND author = #{account} ORDER BY create_time DESC")
     List<Article> listByAccount(@Param("account") String account);
 
+    @Select("SELECT * FROM article WHERE id = #{id}")
+    Article get(@Param("id") String id);
+
     @InsertProvider(type = ArticleProvider.class,method = "add")
     int add(Article article);
 
     @UpdateProvider(type = ArticleProvider.class,method = "update")
-    int update(Article article);
+    void update(Article article);
+
+    @Update("UPDATE article SET status = 2 WHERE id = #{id}")
+    void publish(@Param("id")String id);
+
+    @Update("UPDATE article SET status = 0 WHERE id = #{id}")
+    void delete(@Param("id")String id);
 
 }

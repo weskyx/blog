@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -31,8 +32,15 @@ public class ArticleServiceImpl implements IArticleService {
         return articleMapper.listByAccount(account);
     }
 
+
+    @Override
+    public Article get(String id) {
+        return articleMapper.get(id);
+    }
+
     @Override
     public String add(Article article) {
+        article.setCreate_time(new Date());
         articleMapper.add(article);
         return ResultBuilder.getResult(true, article.toString(), "新建成功", "");
     }
@@ -40,6 +48,18 @@ public class ArticleServiceImpl implements IArticleService {
     @Override
     public String update(Article article) {
         articleMapper.update(article);
-        return ResultBuilder.getResult(true, article.toString(), "新建成功", "");
+        return ResultBuilder.getResult(true, article.toString(), "更新成功", "");
+    }
+
+    @Override
+    public String publish(String id) {
+        articleMapper.publish(id);
+        return ResultBuilder.getResult(true, "", "更新成功", "");
+    }
+
+    @Override
+    public String delete(String id) {
+        articleMapper.delete(id);
+        return ResultBuilder.getResult(true, "", "更新成功", "");
     }
 }

@@ -11,8 +11,14 @@ public interface IArticleService {
 
     List<Article> listByAccount(String account);
 
+    Article get(String id);
+
     String add(Article article);
 
     String update(Article article);
+
+    String publish(String id);
+
+    String delete(String id);
 
 }

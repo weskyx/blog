@@ -3,6 +3,7 @@ package com.weskyx.blog.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -26,7 +27,7 @@ public class Article {
 
     String id = UUID.randomUUID().toString().replace("-", "");
     String section_id;
-    String create_time;
+    Date create_time;
     String author;
     Integer status;
     Integer favorite;

@@ -42,6 +42,14 @@ public class ArticleController {
         return articleService.listByAccount(account);
     }
 
+    @ApiOperation(value = "获取博客", notes = "获取博客")
+    @ApiImplicitParam(name = "article", required = true, paramType = "body", dataType = "Article")
+    @GetMapping(value = "/get/{id}")
+    public Article add(@PathVariable String id) {
+        return articleService.get(id);
+    }
+
+
     @ApiOperation(value = "新建博客", notes = "根据requestBody内容新建博客")
     @ApiImplicitParam(name = "article", required = true, paramType = "body", dataType = "Article")
     @PostMapping(value = "/add")
@@ -55,4 +63,19 @@ public class ArticleController {
     public String update(Article article) {
         return articleService.update(article);
     }
+
+    @ApiOperation(value = "发布博客", notes = "发布博客")
+    @ApiImplicitParam(name = "id", required = true, paramType = "path", dataType = "String")
+    @PostMapping(value = "/publish/{id}")
+    public String publish(@PathVariable String id) {
+        return articleService.publish(id);
+    }
+
+    @ApiOperation(value = "删除博客", notes = "删除博客")
+    @ApiImplicitParam(name = "id", required = true, paramType = "path", dataType = "String")
+    @PostMapping(value = "/delete/{id}")
+    public String delete(@PathVariable String id) {
+        return articleService.delete(id);
+    }
+
 }
