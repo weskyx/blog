@@ -23,3 +23,5 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+document/blogModel.mwb.bak
+*.log
