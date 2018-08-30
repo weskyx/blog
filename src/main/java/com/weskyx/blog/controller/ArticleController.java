@@ -53,14 +53,14 @@ public class ArticleController {
     @ApiOperation(value = "新建博客", notes = "根据requestBody内容新建博客")
     @ApiImplicitParam(name = "article", required = true, paramType = "body", dataType = "Article")
     @PostMapping(value = "/add")
-    public String add(Article article) {
+    public String add(@RequestBody Article article) {
         return articleService.add(article);
     }
 
     @ApiOperation(value = "更新博客", notes = "根据requestBody内容更新博客")
     @ApiImplicitParam(name = "article", required = true, paramType = "body", dataType = "Article")
     @PostMapping(value = "/update")
-    public String update(Article article) {
+    public String update(@RequestBody Article article) {
         return articleService.update(article);
     }
 
