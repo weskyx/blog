@@ -2,6 +2,7 @@ package com.weskyx.blog.service.impl;
 
 import com.weskyx.blog.common.ResultBuilder;
 import com.weskyx.blog.entity.Article;
+import com.weskyx.blog.entity.utils.EntityUtils;
 import com.weskyx.blog.mapper.IArticleMapper;
 import com.weskyx.blog.service.IArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,13 +43,13 @@ public class ArticleServiceImpl implements IArticleService {
     public String add(Article article) {
         article.setCreate_time(new Date());
         articleMapper.add(article);
-        return ResultBuilder.getResult(true, article.toString(), "新建成功", "");
+        return ResultBuilder.getResult(true, EntityUtils.generateJsonObjectString(Article.class, article), "新建成功", "");
     }
 
     @Override
     public String update(Article article) {
         articleMapper.update(article);
-        return ResultBuilder.getResult(true, article.toString(), "更新成功", "");
+        return ResultBuilder.getResult(true, EntityUtils.generateJsonObjectString(Article.class, article), "更新成功", "");
     }
 
     @Override
