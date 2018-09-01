@@ -12,7 +12,7 @@ public interface IUserMapper {
     @InsertProvider(type = UserProvider.class, method = "add")
     int add(User user);
 
-    @UpdateProvider(type = UpdateProvider.class, method = "update")
+    @UpdateProvider(type = UserProvider.class, method = "update")
     void update(User user);
 
     @Update("UPDATE user SET status = 0 WHERE account = #{account}")
