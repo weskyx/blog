@@ -1,5 +1,6 @@
 package com.weskyx.blog.entity;
 
+import com.weskyx.blog.common.BlogConsts;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -21,4 +22,6 @@ public class User {
     String password;
     String introduction;
     String email;
+
+    Integer status = BlogConsts.ValidStatus;
 }
