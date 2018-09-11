@@ -21,6 +21,11 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    public User getByAccount(String account) {
+        return userMapper.getByAccount(account);
+    }
+
+    @Override
     public String add(User user) {
         //todo check user
         userMapper.add(user);

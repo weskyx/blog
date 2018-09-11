@@ -9,6 +9,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IUserMapper {
 
+    @Select("SELECT * FROM user WHERE account = #{account}")
+    User getByAccount(@Param("account") String account);
+
     @InsertProvider(type = UserProvider.class, method = "add")
     int add(User user);
 

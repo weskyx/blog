@@ -33,7 +33,6 @@ public class ArticleServiceImpl implements IArticleService {
         return articleMapper.listByAccount(account);
     }
 
-
     @Override
     public Article get(String id) {
         return articleMapper.get(id);
